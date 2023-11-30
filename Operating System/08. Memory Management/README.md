@@ -16,7 +16,7 @@
 
 ## 주소_바인딩
 주소 바인딩이란 주소를 결정하는 것
-Symbolic Address -> Logical Address -> Physical address
+Symbolic Address -> Logical Address -> Physical address  
 Logical -> Physical 로 변하는 시점이 중요하며 이 방법은 3가지가 있음
 
 ### 1. Compile time binding
@@ -36,10 +36,11 @@ Logical -> Physical 로 변하는 시점이 중요하며 이 방법은 3가지�
 
 ### 3가지 방식의 비교 
 ![주소바인딩](./images/주소바인딩.png)
-Compile time binding : Logical address때 결정된 주소대로 올려야함. 빈 공간이 많아도 0번지부터 시작. 옛날에는 한 개만 돌아가서 사용했으나, 현재는 빈 공간이 많기 때문에 사용 x
+Compile time binding : Logical address때 결정된 주소대로 올려야함. 빈 공간이 많아도 0번지부터 시작. 옛날에는 한 개만 돌아가서 사용했으나, 현재는 빈 공간이 많기 때문에 사용 x  
 -> 위치주소를 바꾸고 싶으면 컴파일부터 다시 해야함
 
-Load time binding : Load시점에서 비어있는 메모리를 보고 올리는 것. 500번지가 비어있어서 500부터 넣어줌 -> 컴파일러가 relocatable code 생성 이 코드는 어느 위치든 올라갈 수 있음
+Load time binding : Load시점에서 비어있는 메모리를 보고 올리는 것. 500번지가 비어있어서 500부터 넣어줌   
+-> 컴파일러가 relocatable code 생성 이 코드는 어느 위치든 올라갈 수 있음
 
 Run time binding : 실행중에 이동가능 (예시에서는 300번지에서 700번지로 이동) 지금 사용하는 컴퓨터들은 Run time binding 지원
 
@@ -60,10 +61,10 @@ Run time binding : 실행중에 이동가능 (예시에서는 300번지에서 70
 ![Dynamic Relocation](./images/DynamicRelocation.png)    
 
 ![Hardware Support for Address Translation](./images/HardwareSupport.png)
-운영체제 및 사용자 프로세스 간의 메모리 보호를 위해 사용하는 레지스터
-Relocation register(=base register) : 접근할 수 있는 물리적 메모리 주소의 최소값
-Limit register는 프로그램의 크기를 담고 있음.
-악의적 사용자가 불가능한 주소를 달라고 하면 trap에 걸리고,  운영체제가 이를 응징(프로그램을 닫는다는 등)
+운영체제 및 사용자 프로세스 간의 메모리 보호를 위해 사용하는 레지스터  
+Relocation register(=base register) : 접근할 수 있는 물리적 메모리 주소의 최소값  
+Limit register는 프로그램의 크기를 담고 있음.  
+악의적 사용자가 불가능한 주소를 달라고 하면 trap에 걸리고,  운영체제가 이를 응징(프로그램을 닫는다는 등)  
 
 ## Some_Terminologies
     1. Dynamic Loading
@@ -94,7 +95,7 @@ Limit register는 프로그램의 크기를 담고 있음.
     - 메모리에 프로세스의 부분 중 실제 필요한 정보만을 올림
     - 프로세스의 크기가 메모리보다 클 때 유용
     - 운영체제의 지원없이 사용자에 의해 구현
-    - 작은 공간의 메모리를 사용하던 초창기 시스템에서 수작업으로 푸로그래머가 구현
+    - 작은 공간의 메모리를 사용하던 초창기 시스템에서 수작업으로 프로그래머가 구현
         - "Manual Overlay"
         - 프로그래밍이 매우 복잡
 Dynamic Loading vs Overlays : 운영체제의 지원없이 사용자가 하면 Overlays, 운영체제 라이브러리 통해서 도움을 받으면 Dynamic Loading
@@ -119,7 +120,7 @@ Dynamic Loading vs Overlays : 운영체제의 지원없이 사용자가 하면 O
 
 ![SchematicViewofSwapping](./images/SchematicViewofSwapping.png)
 
-## Allocation ohf Physical Memory
+## Allocation of Physical Memory
 ![memory설명](./images/memory설명.png)  
 메모리는 일반적으로 두 영역으로 나뉘어 사용  
 - OS 상주 영역   
@@ -256,18 +257,18 @@ page table 자체가 page로 구성되기 때문에 page number는 다음과 같
 - 10 bit의 page number (남는 비트)
 - 10 bit의 page offset (1K구분하기 위해서는 10bit가 필요 (2^10 = 1K))
 
-따라서, logical address는 다음과 같다.
-![logical_address](./images/logicalAddress.png)
-**P1** 은 outer page table의 index이고
+따라서, logical address는 다음과 같다.  
+![logical_address](./images/logicalAddress.png)  
+**P1** 은 outer page table의 index이고  
 **P2** 는 outer page table의 page에서의 변위(displacement)
 
 ### Multilevel Paging and Performance
-2단계 뿐만 아니라, 3단계, 4단계도 가능  
-이렇게 하면 테이블 공간은 줄일 수 있지만, 주소변환 시 거치는 관계가 많아져 시간 오버헤드가 심함(시간이 오래걸림) 
+2단계 뿐만 아니라, 3단계, 4단계도 가능   
+이렇게 하면 테이블 공간은 줄일 수 있지만, 주소변환 시 거치는 관계가 많아져 시간 오버헤드가 심함(시간이 오래걸림)   
 하지만 대부분의 주소변환은 TLB를 통해 직접적으로 변환되므로 시간이 그렇게 오래걸리지는 않음
 
 #### Protection bit
-- page에 대한 접근 구너한 (read/write/ read only)
+- page에 대한 접근 권한 (read/write/ read only)
 
 #### Vaild-invalid bit
 - Valid는 해당 주소의 frame에 그 프로세스를 구성하는 유효한 내용이 있음을 뜻함.
