@@ -10,6 +10,7 @@
 
 ## 목차
 ### 📌 Operating System
+- [01. Intro](https://github.com/YuKyung-Chung/cs-study/tree/5cd06f4a4bf9f19faf6f720ddaafa79f98679a2f/Operating%20System/01.%20Introduction%20to%20Operating%20Systems)<br/>
 - [02. System Structure & Program Execution](https://github.com/YuKyung-Chung/cs-study/tree/4796b1c150b2efa1162a00d5f34a300bb257fd5c/Operating%20System/02.System%20Structure%20%26%20Program%20Execution)<br/>
 - [03. Process](https://github.com/YuKyung-Chung/cs-study/tree/4796b1c150b2efa1162a00d5f34a300bb257fd5c/Operating%20System/03.Process)<br/>
 - [04. Process Management](https://github.com/YuKyung-Chung/cs-study/tree/4796b1c150b2efa1162a00d5f34a300bb257fd5c/Operating%20System/04.%20Process%20Management)<br/>
