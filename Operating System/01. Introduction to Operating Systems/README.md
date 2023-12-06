@@ -1,3 +1,28 @@
+- [운영체제 1. INTRO](#운영체제-1-intro)
+- [✨운영체제(OS)란?✨](#운영체제os란)
+- [✨운영 체제의 목적✨](#운영-체제의-목적)
+  - [✔️컴퓨터 시스템의 자원을 효율적으로 관리](#️컴퓨터-시스템의-자원을-효율적으로-관리)
+  - [✔️컴퓨터 시스템을 편리하게 사용할 수 있는 환경을 제공](#️컴퓨터-시스템을-편리하게-사용할-수-있는-환경을-제공)
+- [✨운영 체제의 분류✨](#운영-체제의-분류)
+  - [📌 동시 작업 가능 여부](#-동시-작업-가능-여부)
+    - [✔️단일 작업(single tasking)](#️단일-작업single-tasking)
+    - [✔️다중 작업(multi tasking)](#️다중-작업multi-tasking)
+  - [📌 사용자의 수](#-사용자의-수)
+    - [✔️단일 사용자(single user)](#️단일-사용자single-user)
+    - [✔️다중 사용자(multi user)](#️다중-사용자multi-user)
+  - [📌 처리 방식](#-처리-방식)
+    - [✔️일괄 처리(batch processing)](#️일괄-처리batch-processing)
+    - [✔️시분할(time sharing)](#️시분할time-sharing)
+    - [✔️실시간(Realtime OS)](#️실시간realtime-os)
+  - [📌 몇 가지 용어](#-몇-가지-용어)
+- [✨운영 체제의 예✨](#운영-체제의-예)
+  - [📌 유닉스(UNIX)](#-유닉스unix)
+  - [📌 Microsoft](#-microsoft)
+    - [✔️DOS(Disk Operating System)](#️dosdisk-operating-system)
+    - [✔️MS windows](#️ms-windows)
+    - [✔️ Handheld deviece를 위한 OS](#️-handheld-deviece를-위한-os)
+- [✨운영 체제의 구조✨](#운영-체제의-구조)
+
 # 운영체제 1. INTRO
 
 # ✨운영체제(OS)란?✨
@@ -40,7 +65,7 @@
 
 ## 📌 사용자의 수
 
-(동시 접근 가능? 기준으로 나눔)
+여러 사용자의 계정을 만들어서 동시 접근할 수 있는지 없는지에 대한 분류.
 
 ### ✔️단일 사용자(single user)
 
