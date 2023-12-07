@@ -170,7 +170,7 @@ Queue<String> queue = new Queue<>();
 | **TreeMap**                             | 연결기반. 정렬과 검색(특히 범위검색)에 적합. 검색성능은 HashMap보다 떨어짐                                              |
 | **Stack**                               | Vector를 상속받아 구현                                                                                                  |
 | **Queue**                               | LinkedList가 Queue인터페이스를 구현                                                                                     |
-| **Properties**                          | Hashtable을 상속 받ㅇ ㅏ구현현                                                                                          |
+| **Properties**                          | Hashtable을 상속 받아 구현                                                                                              |
 | **HashSet**                             | HashMap을 이용해서 구현                                                                                                 |
 | **TreeSet**                             | TreeMap을 이용해서 구현                                                                                                 |
 | **LinkedHashMap**<br> **LinkedHashSet** | HashMap과 HashSet에 저장순서유지기능을 추가                                                                             |

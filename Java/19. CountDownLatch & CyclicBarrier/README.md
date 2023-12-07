@@ -84,7 +84,7 @@ public class LatchExampleTest {
 
 ## 📌 실행 화면
 
-![CountDownLatch 실행 화면](img/countdownlatch_result.PNG)
+![CountDownLatch 실행 화면](img/countdownlatch_result.png)
 
 `await()` 를 통해 메인 쓰레드를 대기 상태로 바꾸고 다른 쓰레드를 실행을 하여 `countDown()`을 호출한다.
 
@@ -149,7 +149,7 @@ public class BarrierExampleTest {
 
 ## 📌 실행 화면
 
-![CyclicBarrier 실행 화면](img/cyclicbarrier_result.PNG)
+![CyclicBarrier 실행 화면](img/cyclicbarrier_result.png)
 
 # ✨CountDownLatch vs CyclicBarrier✨
 

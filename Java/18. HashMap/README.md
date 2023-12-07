@@ -101,7 +101,7 @@ hash는 hashmap 형태로 많은 언어들에서 사용되고 있는데, 주로 
 
 ### ✔️ 2. 데이터 조회
 
-**ex. get("Jeongyoon Park")**
+**ex. get("Hyeona Jeong")**
 
 동일하게 hash function에 값을 돌리고 **226 % 16**를 하면 값은 2가 된다.
 
