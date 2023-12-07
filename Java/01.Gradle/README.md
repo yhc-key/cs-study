@@ -18,6 +18,7 @@
   - [플러그인](#플러그인)
   - [저장소](#저장소)
   - [의존성 주입](#의존성-주입)
+  - [Reference](#reference)
 
 # Java Build Tool
 
@@ -284,3 +285,7 @@ dependencies {
 - `runtimeOnly`: runtime에만 필요하고, compile에는 필요없는 라이브러리
 - `annotationProcessor`: 어노테이션 기반 라이브러리를 컴파일러가 인식하도록 함 (lombok, queryDSL)
 - `testImplementation`: 테스트에 사용하는 라이브러리
+
+### Reference
+
+- [devSquad-study](https://github.com/devSquad-study)

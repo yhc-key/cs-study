@@ -5,6 +5,8 @@
     - [Inheritance(상속)](#inheritance상속)
     - [Polymorphism(다형성)](#polymorphism다형성)
     - [Encapsulation(캡슐화)](#encapsulation캡슐화)
+- [예상 질문](#예상-질문)
+  - [Reference](#reference)
 
 # Object-Oriented Programming(객체 지향 프로그래밍)
 
@@ -52,4 +54,14 @@ public class Main {
 - OOP에서 캡슐화를 하는 이유
   - 데이터 보호 : 외부로부터 클래스에 정의된 속성과 기능들을 보호
   - 데이터 은닉 : 내부의 동작을 감추고 외부에는 필요한 부분만 노출
-  ![Untitled](OOP%205c9fe4200db040daa99b378e35063637/Untitled.png)
+    ![Untitled](OOP%205c9fe4200db040daa99b378e35063637/Untitled.png)
+
+# 예상 질문
+
+객체 지향이 무엇인지에 대해 설명해주세요
+객체 지향 프로그래밍의 장점은 무엇인가요
+캡슐화는 무엇인가요
+
+### Reference
+
+- [devSquad-study](https://github.com/devSquad-study)

@@ -2,6 +2,8 @@
   - [Call by Value](#call-by-value)
   - [Call by Reference](#call-by-reference)
     - [🤦‍♀️Java에는 Call by Reference 없다며;](#️java에는-call-by-reference-없다며)
+- [예상 질문](#예상-질문)
+  - [Reference](#reference)
 
 # Call by Value & Call by Reference
 
@@ -134,3 +136,15 @@ arr랑 arr_arg랑 주소값이 같음. 두 변수가 하나의 데이터를 동�
 
 - 즉, `call by value`로 동작하면서 단지 **원시값**이 복사되느냐 **주소값**이 복사되느냐 차이이다.
 - `add_reference()` 호출 시 `arr` 의 주소값을 복사해서 새로운 변수를 선언한다. 각 변수는 다른 scope에 존재하기 때문에 두 변수가 완전히 같지 않다. 하지만, `Call by Reference` 는 **두 변수가 완전히 같아야 한다.**
+
+# 예상 질문
+
+Q1. Call by value와 Call by reference의 차이점
+
+Q2. 자바에는 포인터 개념이 없는 이유가 무엇일까요?
+
+Q3. C++언어에서 쓰이는 Call by reference와 Java의 reference 차이점은 무엇인가요?
+
+### Reference
+
+- [devSquad-study](https://github.com/devSquad-study)

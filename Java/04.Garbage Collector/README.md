@@ -15,6 +15,8 @@
     - [Parallel Old GC](#parallel-old-gc)
     - [CMS Collector(Concurrent Mark-Sweep)](#cms-collectorconcurrent-mark-sweep)
     - [G1 GC(Garbage First)](#g1-gcgarbage-first)
+- [예상 질문](#예상-질문)
+  - [Reference](#reference)
 
 # GC 도입의 전재 가설(Week Generational Hypothesis)
 
@@ -166,3 +168,15 @@ Compaction : 객체들을 가까운 곳으로 모으고, heap 메모리의 아�
 - Stop The World로 인한 중단 시간이 짧음.
 - Compaction 기능을 제공함.
 - **Java 9부터 기본 GC**로 채택됨.
+
+# 예상 질문
+
+Q1. GC의 실행시점은?
+
+Q2. GC가 어떤 원리에 의해 동작하는지 설명해주세요.
+
+Q3. Minor GC와 Major GC의 차이점
+
+### Reference
+
+- [devSquad-study](https://github.com/devSquad-study)
