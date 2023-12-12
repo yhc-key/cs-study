@@ -208,7 +208,7 @@ First-fit과 best-fit이 worst-fit보다 속도와 공간 이용률 측면에서
 ![pageFrame](./images/pageFrame.png)  
 페이지 개수만큼 페이지 엔트리가 존재하고 각각의 페이지 엔트리에는 몇번 물리적 프레임에 올라갔는지 기록됨
 
-![AddressTranslationArchitecture](./images/AddressTranslationArchitecture.png.png)
+![AddressTranslationArchitecture](./images/AddressTranslationArchitecture.png)
 
 ### Page Table 위치
 프로그램 하나의 주소공간이 100만개정도로 짤림. 또한 프로그램마다 page table이 필요. page table 자체의 용량이 크기 때문에 저장이 골치

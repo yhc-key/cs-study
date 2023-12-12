@@ -2,16 +2,6 @@
 - [Deadlock 기초 개념](#Deadlock_기초_개념)
 - [Deadlock 발생의 4가지 조건](#Deadlock_발생의_4가지_조건)
 - [Deadlock 처리방법](#Deadlock의_처리_방법)
-  - [fork() 시스템 콜](#fork-시스템-콜)
-  - [exec() 시스템 콜](#exec-시스템-콜)
-  - [wait() 시스템 콜](#wait-시스템-콜)
-  - [exit() 시스템 콜](#exit-시스템-콜)
-  - [프로세스 간 협력](#프로세스-간-협력)
-    - [Message Passing](#message-passing)
-    - [Shared Memory](#shared-memory)
-- Deadlock 기초 개념
-- Deadlock 발생의 4가지 조건
-- Resource-Allocation graph
 
 
 ## Deadlock_기초_개념
