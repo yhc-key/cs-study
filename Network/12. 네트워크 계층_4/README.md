@@ -1,9 +1,9 @@
 ## 1. Internet Control Message Protoco(ICMP)
 
-> Used by hosts and routers to communicate network-level information
-> 
-> - error reporting: unreachable host, network, port, protocol (에러 메세지)
-> - echo request/reply (used by ping) (리퀘스트 확인하기)
+- 호스트와 라우터 간 네트워크 레벨에서 데이터 전송과 관련된 문제를 전달하기 위해 사용하는 프로토콜
+- 용도
+  - 오류 보고
+  - 네트워크 성능을 평가하기 위한 진단 도구
 
 ![](img/01.png)
 
@@ -13,7 +13,7 @@
 
 ## 2. Traceroute & ICMP
 
-목적지까지 가는데 정보를 찾아주는 유틸리티.
+- 인터넷을 통해 거친 경로 표시, 구간의 정보 기록, 인터넷 프로토콜 네트워크를 통해 패킷의 전송 지연을 측정하기 위한 컴퓨터 네트워크 진단 유틸리티
 
 ![](img/02.png)
 
@@ -52,6 +52,7 @@
 ![](img/04.png)
 
 ---
+# Routing Algorithms
 
 ## 1. Interplay Between Routing and Forwarding
 
