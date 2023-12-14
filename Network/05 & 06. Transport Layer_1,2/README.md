@@ -7,15 +7,16 @@
 - [정리](#정리)
 - [TCP segment structure](#tcp-segment-structure)
   - [Timeout](#timeout)
+  - [TCP Reliable data transfer](#tcp-reliable-data-transfer)
   - [TCP 권고사항](#tcp-권고사항)
 
 # Pipelined Protocols
 
-![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled.png>)
+![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled.png>)
 
 ## Go-Back-N
 
-![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%201.png>)
+![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 1.png>)
 
 - Window size
   - 한번에 얼마만큼의 packets을 보낼 것인지
@@ -25,11 +26,11 @@
     - ACK 11이면 한번에 11까지 받았다는 것.
     - 가장 먼저 보내는 패킷 send base에 timer가 있음
       - e.g. window size가 4면 0,1,2,3이 보내질 때 0한테 timer가 있다는 뜻
-        ![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%202.png>)
+        ![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 2.png>)
 - Receiver
   - 번호 순서대로 sequence number를 처리함.
     - sender한테 0을 받았으면 그 다음은 무조건 1받을 때까지 기다림. 만약에 2가 더 먼저오면 그거는 버리고 1이 올때까지 기다린다.
-    ![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%203.png>)
+      ![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 3.png>)
 - 만약 window size가 4고 중간에 6이 유실됨
   - 6이 send base일 때 6에서 터지니까 다시 4개가 돌고서 6으로 Go-Back하는 거임
 
@@ -41,7 +42,7 @@
   - 그리고 2는 재전송
   - 2가 잘 받아져서 2,3,4,5가 다 받아지면 패킷을 application layer로 전송
   - 그리고 그 다음 window로 넘어감
-  ![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%204.png>)
+    ![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 4.png>)
 
 <aside>
 💡 **딜레마**
@@ -58,7 +59,7 @@
 
 - 얼만큼으로?
 
-![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%205.png>)
+![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 5.png>)
 
 ---
 
@@ -79,17 +80,17 @@
   - receiver의 용량만큼 부어주는거
 - condition controller
 
-![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%206.png>)
+![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 6.png>)
 
 # TCP segment structure
 
-![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%207.png>)
+![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 7.png>)
 
-![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%208.png>)
+![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 8.png>)
 
 - 각 포트가 16bit(포트 번호 범위 0~2^16-1)
 
-![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%209.png>)
+![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 9.png>)
 
 <aside>
 💡 A가 B한테 ‘C’를 보내려고 하는 상황
@@ -106,17 +107,21 @@
 ## Timeout
 
 - 시간제한을 어떻게 정할까?
+
   - RTT (Round Trip Time) : segment를 보내고 돌아오는 시간
     - 시간 제한을 RTT로 정해보자
       - 경로마다 RTT값이 다름(거리마다 다르고, Queue delay가 다름)→RTT를 기준으로 잡기가 중구난방이라 힘들다.
   - Estimated RTT : 보정된 RTT값
     - 너무 타이트할 때도 있음
-      ![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%2010.png>)
+      ![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 10.png>)
   - Dev RTT : Estimated RTT에 시간을 더해줌
+
   ## TCP Reliable data transfer
+
   - timer 1개 사용
     - 타이머가 터지면 딱 그거 하나만 재전송
-  ![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%2011.png>)
+      ![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 11.png>)
+
   1. 상황
 
      segment 1 : 92~99
@@ -128,12 +133,13 @@
      - 1번 재전송해서 120번 기다리는 리시버에게 날라가면 버려짐
      - 그리고 ACK120번이 B에서 A로 날라감
      - 그러면 119까지는 잘 처리된거니까 A 비움
-  ![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%2012.png>)
+       ![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 12.png>)
+
   1. 상황
      - 2와 거의 동일한데 1번 세그먼트가 유실된 상황
      - 2와 비슷하게 동작
-  ![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%2013.png>)
-  ![Untitled](<Transport%20Layer(%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%BC)%202f4789b102664cbda0ad696c6395d8ed/Untitled%2014.png>)
+       ![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 13.png>)
+       ![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled 14.png>)
 
 ## TCP 권고사항
 
