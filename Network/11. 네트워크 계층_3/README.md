@@ -52,19 +52,18 @@ Dynamic Host Configuration Protocol(DHCP)에서 가장 중요한 단어는 host 
 > How does host get IP address?
 > 
 > 
-> 1. hard-coded by sysadmin in config file (e.g., /etc/rc.config in UNIX) (직접설정 한다)
+> 1. 직접설정 한다.
 > 
-> 2. DHCP: Dynamic Host Configuration Protocol: dynamically get address from as server (DHCP가 자동으로 설정해 준다.)
-> 
-> - “plug-and-play
+> 2. DHCP가 자동으로 설정해 준다.
+
 
 ## 2. DHCP Client-Server Scenario
 
-> goal: host dynamically obtains IP address from network server when it “joins” network (호스트가 빠르게 network에 접글할수 있게 도와준다.)
+> goal: 호스트가 빠르게 network에 접글할수 있게 도와준다.
 > 
-> - can renew its lease on address in use (사용중이면 알아서 추가 사용 갱신,)
-> - allows reuse of addresses (only hold address while connected/on) (이미 사용했던 IP 주소가 있으면 다시 재사용,)
-> - support for mobile users who join/leave network(모바일에서 DHCP 자동으로 지원.)
+> - 사용중이면 알아서 추가 사용 갱신
+> - 이미 사용했던 IP 주소가 있으면 다시 재사용
+> - 모바일에서 DHCP 자동으로 지원.
 
 ![](img/05.png)
 
