@@ -9,7 +9,14 @@
   - [Timeout](#timeout)
   - [TCP Reliable data transfer](#tcp-reliable-data-transfer)
   - [TCP 권고사항](#tcp-권고사항)
-
+- [TCP Flow Control](#flow-control)
+- [TCP connection management](#connection-management)
+  - [TCP-3-way-handshake](#TCP-3-way-handshake)
+  - [Closing-TCP-Connection](#Closing-TCP-Connection)
+- [Principles of congestion control](#Principles-of-congestion-control)  
+- [TCP Coingestion Control details](#TCP-Coingestion-Control-details)
+  - [TCP Slow Start more](#TCP-Slow-Start-more)
+  - [TCP Fairness](#TCP-Fairness)
 # Pipelined Protocols
 
 ![Untitled](<Transport Layer(전송계층) 2f4789b102664cbda0ad696c6395d8ed/Untitled.png>)
@@ -147,3 +154,69 @@
 - **fast retransmit :** timer가 터지기 전에 유실을 알 수 있음
   - 특정번호의 ACK가 계속 들어오면 유실인것임 → 동일 번호가 4번이상 반복되면 유실로 판단해줌⇒ **3 duplicate ACK**
   - 없어도 되는 기능. 필수는 아님
+
+## flow-control
+receive buffer가 받을 수 있는 만큼 send buffer가 보내주는 것이 flow control   
+(recieve buffer 크기에 의해 결정되므로 receiver가 중요)  
+TCP seg의 header에 정보가 담김  
+
+![TCPFlowControl](images/TCPFlowControl.png)
+<br/>
+<br/>
+극단적인 상황으로 receive buffer가 빈공간이 없으면 HDR에 recv buf에 0이 담겨서 보내짐. 이 때 send buf가 아무 행동도 취하지 않으면 계속 교착 상태에 빠지기 때문에 send buf가 data를 비운 채로 seg를 보내줌.
+
+## connection-management
+
+### TCP-3-way-handshake
+![TCP3WayHandshake](images/TCP3WH.png)  
+HDR에 SYNbit가 담기며 처음 통신시작할 때 1로 해서 보냄 (통신을 하고 싶다는 신호)  
+receiver는 SYNBIT(=1), Seq(=y), ACKBIT(=1), ACKnum = x+1(sender가 보낸 Seq +1)를 client에게 보냄  
+client가 ACKbit(=1) , ACKnum(=y+1)을 보내며 통신 시작(이 때 이미 SYNBIT는 0)  
+3번째 과정에서는 **데이터가 포함될 수 있음**
+
+### Closing-TCP-Connection
+
+![Closing TCP Connection](images/CTCPC.png)  
+4번째 ACK가 확실히 server에 수신됨을 화인하기 위해 timed wait 과정이 있음.   
+만일 이 과정이 없다면 4번째 ACK를 서버가 수신하지못할 시 무한정으로 FIN을 client에게 보내게 됨(client는 이미 통신을 끊어서 받을 수 없음)
+
+## Principles-of-congestion-control
+TCP라는 것은 대이터 유실 시 재전송 하기 때문에 실제보다 많은 데이터량을 보내게 됨.  
+ 따라서 네트워크가 막혔을 때 TCP 방식은 더 네트워크 상태를 악화시키게 된다.  
+따라서 네트워크가 막혔을 때 자기가 보내는 데이터량을 줄여야 내 자신을 위해서도 전체를 위해서도 좋음. 
+![congestion control](images/congestion_control.png)  
+<br/>
+하지만 네트워크 상황이 좋은지 알 방법이 없음. 그래서 두 가지 방식이 존재.  
+1. End-end congestion control (통신하는 두 대상이 유추해서 알려줌) 현재 O
+    1. 아주 정확하지는 않음(유추하므로)
+2. Network-assisted congesetion control (네트워크가 줌) -> 현재 X
+
+## TCP Congestion Control  
+### 3 main phases (Window size를 늘려나가는 과정)      
+1. Slow Start  
+    실제로는 exponential 하게 증가. 하지만 작은거에서 점점 커진다는 의미에서는 맞음.  
+2. Additive increase  
+    Linear하게 늘려나감.  
+3. Multiplicative decrease  
+    막혔다 싶으면 줄이긴 줄이되 1/2만큼 줄임. 
+
+MSS(Maximum Segment Size) = 500Byte(변화하는 단위)  
+![TCPCC-additive,multiplicative](images/TCPCC.png)  
+늘였다 줄였다 하기 때문에 실제로 파일 전송받을 때, 전송속도가 왔다갔다 하는 이유
+
+### TCP-Coingestion-Control-details
+![TCP Coingestion Control](images/TCPCCD.png)
+
+### TCP-Slow-Start-more
+![TCP Slow Start](images/TCP_Slow_Start.png)  
+파랑색은 TCP Tahoe 방식. 1980년대 나왔고 현재는 더 이상 쓰지 않음.   
+패킷 유실 감지(1. timeout 2. 3duplicate ACK)시 그 시점에서 Threshold를 절반으로 설정하고 처음부터 slow start.  
+<br/>
+검은색은 TCP Reno 방식. 3duplicate ACK로 패킷 유실 감지시 절반으로 줄이고 Linear increase 사용. timeout시 slow start 다시 시작.
+
+처음 Threshold는 구현하는 사람 마음. 정할 수도 없음. 
+
+### TCP-Fairness
+결국에는 모든 TCP가 fair하게 됨.  
+![TCPFair](images/TCPFair.png)  
+하지만 TCP 그 자체 끼리 공평하다는 내용이기 때문에 TCP통신을 많이 연 사람이 더 많이 가져가는 구조임.
