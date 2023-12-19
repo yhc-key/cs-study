@@ -334,3 +334,62 @@ Fragment의 이러한 정보로 나중에 병합이 가능합니다. 그러니�
 ![](img/32.png)
 
 ![](img/33.png)
+
+![Bellman-Ford example](img/BellmanFord_ex.png)
+u에서 z로 가는 방법은 
+1. u-v 길이 + v에서 z로 가는 길이
+2. u-x 길이 + x에서 z로 가는 길이
+3. u-w 길이 + w에서 z로 가는 길이   
+중에 최솟값이다.  
+  
+
+![DistanceVectorExample](img/DistanceVectorExample.png)
+초기 통신은 자기와 연결된 라우터끼리만 하기때문에 위와 같다.  
+<br />  
+![DistanceVectorExample2](img/DistanceVectorExample2.png)
+라우터끼리 통신을 해가면서 본인과 관련된 값들을 업데이트하고, 더 이상 변화가 없을 때까지 반복한다.
+만약 특정 링크의 값이 커지면 이를 벗어나기 위해 다른 루트를 참조하게 되고, 이를 통해 같은 참조를 반복하는 문제가 발생할 수 있다. 물론 이대로 둬도 계속된 참조를 통해 결국 올바른 값으로 가지만, 이는 굉장히 비효율적이며 이 문제를 Count-to-infinity problem이라고 한다.   
+#### ex)
+y-> x 가 갑자기 60으로 늘면, y는 x로 가기위해 y-z + z에서 x로 가는 최솟값을 택하게 되는데, z가 x로 가는 최소 길이는 값이 변형되기 전 z->y->x 루트이기 때문에(y입장에서는 y-> z-> y-> x 루트를 타게 되는 것) 계속해서 서로 업데이트가 되게 됨( y->x로 올바르게 갈 때까지)  
+#### 해결법
+**Poisoned reverse**  
+y를 참조한 길을 z가 y에게 알려주어서 문제가 발생했기 때문에, root에 영향을 끼치는 라우터에게는 ∞ 값을 전해 참조하지 못하도록 함.
+
+### 3. Hierachical routing
+#### 탄생 배경
+- 위의 LS, DV 알고리즘은 network를 flat하게 보고, routing 방식 결정
+- LS의 경우 네트워크 커지면 각 노드 링크 코스트 정보가 커져 **비효율적**
+- 사용자 정보 교환보다 라우팅 정보 교환에 링크 더 많이 사용될 수 있음
+- DV에서도 routing loop등의 문제가 생길 가능성이 크고, routing distance가 너무 길어짐
+- LS, DV 둘 다 네트워크가 커질 수록 라우트 케이블의 크기가 너무 커짐
+- 네트워크는 각 작은 네트워크들의 집합, 각각의 네트워크들은 내 주소 정보를 모두에게 알려주고 싶지 않아함.
+
+#### 특징
+- 지역적으로 제한된, 지역내에 있는 한 기관에 속한 라우터들의 집합인 AS(Autonomous System)으로 나눔
+- 그 단위로 라우팅 테이블을 만듬
+- 시스템 내에서 라우팅 실행 (intra-AS routing protocol)
+- 각 autonomous system은 gateway router로 서로 연결
+
+## ✔️ Routing in the Internet
+### RIP(Routing Infomation Prtocol)  
+Distance Vector 알고리즘 사용 다이나믹 라우팅 프로토콜
+### OSPF(Open Shortest Path First)  
+Link State 알고리즘을 사용한 다이나믹 라우팅 프로토콜
+### BGP (Border Gateway Protocol)
+외부 라우팅 프로토콜(EGP)로 AS(관리 도메인)와 AS간 사용되는 라우팅 프로토콜  
+**Policy-Based Protocol**
+- Intra-AS는 최단 경로가 목적  
+    - 같은 AS 내부에 호스트와 라우터들 간의 라우팅 방식
+    - OSPF, RIP
+- Inter-AS는 목적이 불분명 (정치적, 국가적 목적이 껴있음)
+    - 서로 다른 AS 간의 라우팅 방식
+    - 게이트웨이 라우터가 Intra 도메인 라우팅뿐만 아니라 Inter 도메인 라우팅도 수행
+    - BGP
+#### ASNs
+![ASNs](img/ASNs.png)
+AS는 ASN이라는 숫자가 부여됨  
+AS끼리는 관계성이 있어서 Customers, Providers로 나눌 수 있음.(상대적인 관계)  
+Provider : 서비스 제공  
+Customer : 서비스 받는 주체(돈을 지불)  
+<br/>
+둘이 대등한 관계라면 Peering Relationship을 맺어 통신망을 공유함.
