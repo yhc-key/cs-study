@@ -392,4 +392,5 @@ AS끼리는 관계성이 있어서 Customers, Providers로 나눌 수 있음.(�
 Provider : 서비스 제공  
 Customer : 서비스 받는 주체(돈을 지불)  
 <br/>
-둘이 대등한 관계라면 Peering Relationship을 맺어 통신망을 공유함.
+둘이 대등한 관계라면 Peering Relationship을 맺어 통신망을 공유함.  
+보통 가장 경제적인(가장 돈이 되는) 루트를 선택함.  
