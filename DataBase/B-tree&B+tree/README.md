@@ -29,12 +29,15 @@
     - 데이터 양에 비례해 효과 상승
         - 풀 스캔 : 일반 전체 검사
         - 인덱스 스캔 : 트리구조에서 데이터 찾는 것  
-        ![b-tree 스캔 그래프](images/b-treeScan.png)
         
-그림 출처 : https://velog.io/@emplam27/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EA%B7%B8%EB%A6%BC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-B-Plus-Tree
+        
+
 
 ## B+tree
 ![b+tree](images/b+tree.png)
+![b+tree 스캔 그래프](images/b+treeScan.png)  
+
+그림 출처 : https://velog.io/@emplam27/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EA%B7%B8%EB%A6%BC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-B-Plus-Tree
 1. 원리
     - B-tree의 확장 개념
     - 노드의 키가 정렬된 상태 유지
@@ -56,7 +59,7 @@
 ## B*tree
 1. 원리
     - B*트리는 B+트리의 분할과 병합 알고리즘을 따름
-    - 노드의 키들은 정렬 상ㅌ애 유지
+    - 노드의 키들은 정렬 상태 유지
     - B+트리는 내부 노드를 항상 최소한으로 채우지만, B트리는 내부 노드를 더 채워 노드 차수 유지에 사용
 2. 특징
     - B+트리의 확장판
