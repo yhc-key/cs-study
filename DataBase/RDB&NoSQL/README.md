@@ -37,7 +37,7 @@
         - ex) BCNF 전  
         ![BCNF전](images/BCNF전.png)
         - ex) BCNF 후
-        ![BCNF후](imageS/BCNF후.png)
+        ![BCNF후](images/BCNF후.png)
     - 제4정규화이상~
         - BCNF에서 더 나아간 정규화.
         - 이 이상은 잘 진행하지 않음.
