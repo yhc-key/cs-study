@@ -47,7 +47,7 @@ Host와 Gateway 간에 전용선이 있는 것이 아니라, 공용선 혹은 `b
 
 ### 📌 Medium Acess Control(MAC)
 
-매체에 대한 접근을 잘 조절해서 충동이 일어나지 않도록 해결하고자 하는 것
+매체에 대한 접근을 잘 조절해서 충돌이 일어나지 않도록 해결하고자 하는 것
 
 ### 📌 이상적인 MAC access protocol
 
