@@ -343,10 +343,10 @@ u에서 z로 가는 방법은
 중에 최솟값이다.  
   
 
-![DistanceVectorExample](img/DistanceVectorExample.png)
+![DistanceVectorExample](img/DistanceVectorExample.png)  
 초기 통신은 자기와 연결된 라우터끼리만 하기때문에 위와 같다.  
 <br />  
-![DistanceVectorExample2](img/DistanceVectorExample2.png)
+![DistanceVectorExample2](img/DistanceVectorExample2.png)  
 라우터끼리 통신을 해가면서 본인과 관련된 값들을 업데이트하고, 더 이상 변화가 없을 때까지 반복한다.
 만약 특정 링크의 값이 커지면 이를 벗어나기 위해 다른 루트를 참조하게 되고, 이를 통해 같은 참조를 반복하는 문제가 발생할 수 있다. 물론 이대로 둬도 계속된 참조를 통해 결국 올바른 값으로 가지만, 이는 굉장히 비효율적이며 이 문제를 Count-to-infinity problem이라고 한다.   
 #### ex)
