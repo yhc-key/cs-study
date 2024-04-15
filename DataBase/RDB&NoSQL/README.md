@@ -32,12 +32,12 @@
         ![제3정규화전](images/제3정규화전.png)  
         - ex) 제3 정규화 후  
         ![제3정규화후](images/제3정규화후.png)  
-    - BCNF(Boyce-Codd Normal Form)
+    - BCNF(Boyce-Codd Normal Form)  
         - 제3 정규화 만족 + 모든 결정자가 후보키 집합에 속해야 함.
-        - ex) BCNF 전  
-        ![BCNF전](images/BCNF전.png)
-        - ex) BCNF 후
-        ![BCNF후](images/BCNF후.png)
+        - ex) BCNF 전   
+        ![BCNF전](images/BCNF전.png)  
+        - ex) BCNF 후  
+        ![BCNF후](images/BCNF후.png)  
     - 제4정규화이상~
         - BCNF에서 더 나아간 정규화.
         - 이 이상은 잘 진행하지 않음.
