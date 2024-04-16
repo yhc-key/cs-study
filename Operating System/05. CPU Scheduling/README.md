@@ -42,7 +42,7 @@
 <br/>
 
 # 📌 CPU Scheduling Algorithm
-### 1. 비선점형 (nonpreemptive)
+### 1. 비선점형 (non-preemptive)
 - 일단 CPU 제어권을 줬으면 자진 반납할 때까지 강제로 빼앗지 않음
 
 ### 2. 선점형 (preemptive)
