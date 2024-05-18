@@ -6,7 +6,7 @@
 
 |[![](https://github.com/YuKyung-Chung.png?width=50px)](https://github.com/YuKyung-Chung)|[![](https://github.com/yhc-key.png?width=50px)](https://github.com/yhc-key) |[![](https://github.com/KuMMii.png?width=50px)](https://github.com/KuMMii) | [![](https://github.com/JHyeon-a.png?width=50px)](https://github.com/JHyeon-a)|
 |:---:|:---:|:---:|:---:|
-| 유경 | 용환 | 지은 | 현아 |
+| 유경 | ** | 지은 | 현아 |
 
 ## 목차
 ### 📌 Operating System
